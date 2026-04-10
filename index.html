@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Omegle Lite</title>
+  <link rel="stylesheet" href="/style.css" />
+</head>
+<body>
+  <div class="wrap">
+    <header class="topbar">
+      <div>
+        <div class="brand">Omegle Lite</div>
+        <div class="sub">Gerçek kullanıcılarla rastgele görüntülü sohbet</div>
+      </div>
+      <div class="online"><span id="onlineCount">0</span> online</div>
+    </header>
+
+    <main class="layout">
+      <section class="videos">
+        <div class="remote-box">
+          <video id="remoteVideo" autoplay playsinline></video>
+          <div class="remote-overlay">
+            <div id="statusText">Hazır</div>
+            <div id="partnerMeta">Henüz eşleşme yok</div>
+          </div>
+        </div>
+        <div class="local-box">
+          <video id="localVideo" autoplay playsinline muted></video>
+        </div>
+      </section>
+
+      <aside class="panel">
+        <div class="group">
+          <label>Senin ülken</label>
+          <input id="myCountry" value="Azerbaijan" />
+        </div>
+        <div class="group">
+          <label>İstədiyin ölkə</label>
+          <input id="wantedCountry" placeholder="ANY" value="ANY" />
+        </div>
+        <div class="group">
+          <label>Cinsin</label>
+          <select id="myGender">
+            <option>Male</option>
+            <option>Female</option>
+            <option selected>Unknown</option>
+          </select>
+        </div>
+        <div class="group">
+          <label>İstədiyin cins</label>
+          <select id="wantedGender">
+            <option selected>ANY</option>
+            <option>Male</option>
+            <option>Female</option>
+          </select>
+        </div>
+
+        <div class="actions">
+          <button id="startBtn" class="primary">Başla</button>
+          <button id="nextBtn">Sonraki</button>
+          <button id="muteBtn">Mic Kapat</button>
+          <button id="camBtn">Kamera Kapat</button>
+          <button id="reportBtn" class="danger">Raporla</button>
+        </div>
+
+        <div id="messages" class="messages"></div>
+
+        <div class="chat-row">
+          <input id="messageInput" placeholder="Mesaj yaz..." />
+          <button id="sendBtn">Gönder</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
